@@ -92,11 +92,11 @@ client.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1
 // Web Page
 client.println("</head><body><h1>Bos Adam Mıyız ? <3</h1>");
 client.println("<p>Position: <span id=\"servoPos\"></span></p>");          
-client.println("<input type=\"range\" min=\"0\" max=\"1023\" class=\"slider\" id=\"servoSlider\" onchange=\"servo()\" value=\""+valueString+"\"/>");
+client.println("<input type=\"range\" min=\"100\" max=\"999\" class=\"slider\" id=\"servoSlider\" onchange=\"servo()\" value=\""+valueString+"\"/>");
 client.println("<br><p>Position 2: <span id=\"servoPos2\"></span></p>");          
-client.println("<input type=\"range\" min=\"0\" max=\"1023\" class=\"slider\" id=\"servoSlider2\" onchange=\"servo()\" value=\""+valueString2+"\"/>");
+client.println("<input type=\"range\" min=\"100\" max=\"999\" class=\"slider\" id=\"servoSlider2\" onchange=\"servo()\" value=\""+valueString2+"\"/>");
 client.println("<br><p>Position 3: <span id=\"servoPos3\"></span></p>");          
-client.println("<input type=\"range\" min=\"0\" max=\"1023\" class=\"slider\" id=\"servoSlider3\" onchange=\"servo()\" value=\""+valueString3+"\"/>");
+client.println("<input type=\"range\" min=\"100\" max=\"999\" class=\"slider\" id=\"servoSlider3\" onchange=\"servo()\" value=\""+valueString3+"\"/>");
 
 client.println("<script>var slider = document.getElementById(\"servoSlider\");");
 client.println("var slider2 = document.getElementById(\"servoSlider2\");");
