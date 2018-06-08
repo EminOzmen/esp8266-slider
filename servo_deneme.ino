@@ -104,9 +104,9 @@ client.println("var slider3 = document.getElementById(\"servoSlider3\");");
 client.println("var servoP = document.getElementById(\"servoPos\"); servoP.innerHTML = slider.value;");
 client.println("var servoP2 = document.getElementById(\"servoPos2\"); servoP2.innerHTML = slider2.value;");
 client.println("var servoP3 = document.getElementById(\"servoPos3\"); servoP3.innerHTML = slider3.value;");
-client.println("slider.oninput = function() { slider.value = this.value; servoP.innerHTML = map(this.value,100,999,0,1023); }");
-client.println("slider2.oninput = function() { slider2.value = this.value; servoP2.innerHTML = map(this.value,100,999,0,1023); }");
-client.println("slider3.oninput = function() { slider3.value = this.value; servoP3.innerHTML = map(this.value,100,999,0,1023); }");
+client.println("slider.oninput = function() { slider.value = this.value; servoP.innerHTML = Math.round(((this.value) - 100) * (1023 - 0) / (999 - 100) + 0); }");
+client.println("slider2.oninput = function() { slider2.value = this.value; servoP2.innerHTML = Math.round(((this.value) - 100) * (1023 - 0) / (999 - 100) + 0); }");
+client.println("slider3.oninput = function() { slider3.value = this.value; servoP3.innerHTML = Math.round(((this.value) - 100) * (1023 - 0) / (999 - 100) + 0); }");
 client.println("$.ajaxSetup({timeout:1000}); function servo() { ");
 client.println("$.get(\"/?value=\" + slider.value + \"&\" + slider2.value + \"&\" + slider3.value + \"&\"); {Connection: close};}</script>");
 
