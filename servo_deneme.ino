@@ -123,9 +123,9 @@ client.println("</body></html>");
               valueString2 = header.substring(pos2+1, pos2+4);
               valueString3 = header.substring(pos2+5, pos2+9);
 
-             int valueStringA= map(valueString.toInt(),100,999,0,1023);
-             int valueStringB= map(valueString2.toInt(),100,999,0,1023);
-             int valueStringC= map(valueString3.toInt(),100,999,0,1023);
+             int valueStringA= map(valueString.toInt(),100,999,1023,0);
+             int valueStringB= map(valueString2.toInt(),100,999,1023,0);
+             int valueStringC= map(valueString3.toInt(),100,999,1023,0);
              
               analogWrite(ledPin,valueStringA);
               analogWrite(ledPin2,valueStringB);
