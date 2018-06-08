@@ -108,7 +108,7 @@ client.println("slider.oninput = function() { slider.value = this.value; servoP.
 client.println("slider2.oninput = function() { slider2.value = this.value; servoP2.innerHTML = this.value; }");
 client.println("slider3.oninput = function() { slider3.value = this.value; servoP3.innerHTML = this.value; }");
 client.println("$.ajaxSetup({timeout:1000}); function servo() { ");
-client.println("$.get(\"/?value=\" + slider.value + \"&value2=\" + slider2.value + \"&value3=\" + slider3.value + \"&\"); {Connection: close};}</script>");
+client.println("$.get(\"/?value=\" + slider.value + \"&\" + slider2.value + \"&\" + slider3.value + \"&\"); {Connection: close};}</script>");
 
 client.println("</body></html>");
                      
@@ -118,27 +118,25 @@ client.println("</body></html>");
               
               pos1 = header.indexOf('=');
               pos2 = header.indexOf('&');
+              
               valueString = header.substring(pos1+1, pos2);
-              
-              if(header.indexOf("value2=")>=0) {
-              pos3 = header.indexOf('=');
-              pos4 = header.indexOf('&');
-              valueString2 = header.substring(pos3+1, pos4);
-              }
-              if(header.indexOf("value3=")>=0) {
-              pos5 = header.indexOf('=');
-              pos6 = header.indexOf('&');
-              valueString3 = header.substring(pos5+1, pos6);
-              }
-              analogWrite(ledPin,valueString.toInt());
-              analogWrite(ledPin2,valueString2.toInt());
-              analogWrite(ledPin3,valueString3.toInt());
+              valueString2 = header.substring(pos2+1, pos2+4);
+              valueString3 = header.substring(pos2+5, pos2+9);
+
+             int valueStringA= map(valueString.toInt(),100,999,0,1023);
+             int valueStringB= map(valueString2.toInt(),100,999,0,1023);
+             int valueStringC= map(valueString3.toInt(),100,999,0,1023);
+             
+              analogWrite(ledPin,valueStringA);
+              analogWrite(ledPin2,valueStringB);
+              analogWrite(ledPin3,valueStringC);
                 
-                //Rotate the servo
+                
               
-              Serial.println(valueString); 
-              Serial.println(valueString2);
-              Serial.println(valueString3);
+              Serial.println(valueStringA); 
+              Serial.println(valueStringB);
+              Serial.println(valueStringC); 
+                
             }         
             // The HTTP response ends with another blank line
             client.println();
